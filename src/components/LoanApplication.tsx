@@ -180,8 +180,8 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
         </div>
 
         <div className="text-right">
-          <span className="text-[10px] font-bold text-blue-900 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200/60">
-            DAKE Instant Loan
+          <span className="text-[10px] font-bold text-brand bg-brand-light px-2.5 py-1 rounded-full border border-brand/20">
+            Instant Loan
           </span>
         </div>
       </div>
@@ -217,7 +217,7 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
                       onClick={() => handleAssetSelect(asset.id)}
                       className={`p-2 rounded-xl border text-center transition-all ${
                         isSelected
-                          ? 'border-blue-900 bg-blue-50/60 shadow-sm'
+                          ? 'border-brand bg-brand-light/70 shadow-sm'
                           : 'border-slate-200 hover:bg-slate-50'
                       }`}
                     >
@@ -246,7 +246,7 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
                     step="any"
                     value={collateralQuantityStr}
                     onChange={(e) => handleCollateralChange(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:bg-white tabular-nums"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand focus:bg-white tabular-nums"
                     placeholder="0.00"
                   />
                   <div className="absolute right-2 top-2 flex items-center gap-1">
@@ -377,7 +377,7 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
                     onClick={() => setDurationDays(days)}
                     className={`py-2 px-1 text-center rounded-xl border transition-all ${
                       durationDays === days
-                        ? 'border-blue-900 bg-blue-900 text-white shadow-sm'
+                        ? 'border-brand bg-brand text-white shadow-md shadow-brand/20'
                         : 'border-slate-200 text-slate-700 hover:bg-slate-50'
                     }`}
                   >
@@ -419,7 +419,7 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
               <button
                 type="button"
                 onClick={handleProceedToOffer}
-                className="w-full h-12 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-blue-900/15 active:scale-[0.98] transition-all min-h-[48px]"
+                className="w-full h-12 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-brand/25 active:scale-[0.98] transition-all min-h-[48px]"
               >
                 <span>Review Loan Offer & Schedule</span>
                 <ChevronRight className="w-4 h-4" />
@@ -564,7 +564,7 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
                   type="button"
                   disabled={!isTermsAccepted || isSubmitting}
                   onClick={handleConfirmLoan}
-                  className="w-full h-12 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-emerald-700/20 active:scale-[0.98] transition-all min-h-[48px]"
+                  className="w-full h-12 bg-brand hover:bg-brand-hover disabled:opacity-50 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-brand/25 active:scale-[0.98] transition-all min-h-[48px]"
                 >
                   {isSubmitting ? (
                     <span>Disbursing Funds...</span>
@@ -630,7 +630,7 @@ export const LoanApplication: React.FC<LoanApplicationProps> = ({ onSuccess, onC
               <button
                 type="button"
                 onClick={() => onSuccess(createdLoanId)}
-                className="w-full h-12 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 min-h-[48px]"
+                className="w-full h-12 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 transition-all flex items-center justify-center gap-1.5 min-h-[48px]"
               >
                 <span>View Loan in My Loans</span>
                 <ArrowRight className="w-4 h-4" />

@@ -47,8 +47,8 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-900 text-white flex items-center justify-center">
-              <ShieldCheck className="w-4 h-4 text-blue-200" />
+            <div className="w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center">
+              <ShieldCheck className="w-4 h-4 text-blue-100" />
             </div>
             <div>
               <h2 className="text-sm font-bold text-slate-900">Identity Verification</h2>
@@ -68,8 +68,8 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
           {step === 1 && (
             <div className="space-y-4">
               <div className="text-center space-y-1">
-                <div className="w-12 h-12 bg-blue-50 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <UserCheck className="w-6 h-6 text-blue-700" />
+                <div className="w-12 h-12 bg-brand-light text-brand rounded-full flex items-center justify-center mx-auto mb-2">
+                  <UserCheck className="w-6 h-6 text-brand" />
                 </div>
                 <h3 className="text-sm font-bold text-slate-900">Verify for Higher Borrowing Limits</h3>
                 <p className="text-xs text-slate-500 max-w-xs mx-auto">
@@ -98,7 +98,7 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
 
               <button
                 onClick={() => setStep(2)}
-                className="w-full h-11 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                className="w-full h-11 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-brand/25 transition-all"
               >
                 <span>Select Government ID Document</span>
                 <ArrowRight className="w-4 h-4" />
@@ -124,12 +124,12 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
                       onClick={() => setDocType(doc.id as any)}
                       className={`w-full p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
                         docType === doc.id
-                          ? 'border-blue-900 bg-blue-50/60 shadow-sm'
+                          ? 'border-brand bg-brand-light/70 shadow-sm'
                           : 'border-slate-200 hover:bg-slate-50'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <FileText className="w-5 h-5 text-blue-900" />
+                        <FileText className="w-5 h-5 text-brand" />
                         <div>
                           <p className="text-xs font-bold text-slate-900">{doc.title}</p>
                           <p className="text-[10px] text-slate-500">{doc.desc}</p>
@@ -137,7 +137,7 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
                       </div>
                       <div
                         className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                          docType === doc.id ? 'border-blue-900 bg-blue-900 text-white' : 'border-slate-300'
+                          docType === doc.id ? 'border-brand bg-brand text-white' : 'border-slate-300'
                         }`}
                       >
                         {docType === doc.id && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -154,7 +154,7 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
               <button
                 onClick={handleStartScan}
                 disabled={isScanning}
-                className="w-full h-11 bg-blue-900 hover:bg-blue-800 disabled:opacity-50 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                className="w-full h-11 bg-brand hover:bg-brand-hover disabled:opacity-50 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-brand/25 transition-all"
               >
                 {isScanning ? (
                   <span>Simulating ID Capture & OCR...</span>
@@ -220,7 +220,7 @@ export const KycVerificationModal: React.FC<KycVerificationModalProps> = ({ isOp
 
               <button
                 onClick={onClose}
-                className="w-full h-11 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-sm transition-all"
+                className="w-full h-11 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 transition-all"
               >
                 Done & Return to App
               </button>

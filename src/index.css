@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand: #002edb;
+  --color-brand-hover: #0025b8;
+  --color-brand-active: #001fa0;
+  --color-brand-light: #eff3ff;
+}
+
+@layer components {
+  .btn-brand-primary {
+    background-color: #002edb;
+    color: #ffffff;
+    box-shadow: 0 4px 14px 0 rgba(0, 46, 219, 0.28);
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-brand-primary:hover {
+    background-color: #0025b8;
+  }
+  .btn-brand-primary:active {
+    background-color: #001fa0;
+    transform: scale(0.98);
+  }
+}
+
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;

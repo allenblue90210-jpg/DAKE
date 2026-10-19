@@ -35,7 +35,7 @@ export const MyLoans: React.FC<MyLoansProps> = ({ onSelectLoan, onApplyNewLoan }
         </div>
         <button
           onClick={onApplyNewLoan}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-sm transition-colors min-h-[44px]"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 transition-colors min-h-[44px]"
         >
           <PlusCircle className="w-3.5 h-3.5" />
           <span>New Loan</span>
@@ -85,7 +85,7 @@ export const MyLoans: React.FC<MyLoansProps> = ({ onSelectLoan, onApplyNewLoan }
           {filter === 'active' && (
             <button
               onClick={onApplyNewLoan}
-              className="px-4 py-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-sm transition-colors"
+              className="px-4 py-2 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 transition-colors"
             >
               Apply for a Loan Now
             </button>
@@ -181,7 +181,7 @@ export const MyLoans: React.FC<MyLoansProps> = ({ onSelectLoan, onApplyNewLoan }
                   {loan.status === 'active' ? (
                     <button
                       onClick={() => onSelectLoan(loan)}
-                      className="py-2.5 px-3 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-sm transition-colors min-h-[44px] flex items-center justify-center gap-1"
+                      className="py-2.5 px-3 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 transition-colors min-h-[44px] flex items-center justify-center gap-1"
                     >
                       <span>Repay Balance</span>
                       <ChevronRight className="w-3.5 h-3.5" />

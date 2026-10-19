@@ -92,11 +92,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl border border-slate-100 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-slate-100">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="w-14 h-14 flex items-center justify-center shrink-0">
               <img
                 src="/assets/aistudio/tam_2_b2487d86.png"
-                alt="DAKE Logo"
+                alt="Logo"
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/tam_2.png';
@@ -108,8 +108,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 {step === 'otp'
                   ? 'Verify Your Identity'
                   : mode === 'login'
-                  ? 'Sign In to DAKE'
-                  : 'Create Your DAKE Account'}
+                  ? 'Sign In'
+                  : 'Create Your Account'}
               </h2>
               <p className="text-xs text-slate-500">
                 {step === 'otp'
@@ -221,7 +221,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-11 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+                    className="w-full h-11 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-brand/25 transition-all"
                   >
                     <span>{isSubmitting ? 'Processing...' : 'Continue to Verification'}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -251,8 +251,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             /* OTP Step */
             <form onSubmit={handleVerifyOtp} className="space-y-5">
               <div className="text-center">
-                <div className="w-12 h-12 bg-blue-50 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Phone className="w-6 h-6 text-blue-700" />
+                <div className="w-12 h-12 bg-brand-light text-brand rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Phone className="w-6 h-6 text-brand" />
                 </div>
                 <p className="text-xs text-slate-600">
                   We sent a simulated 6-digit SMS verification code to
@@ -270,7 +270,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     maxLength={1}
                     value={digit}
                     onChange={(e) => handleOtpChange(i, e.target.value)}
-                    className="w-11 h-12 text-center text-lg font-bold border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-900 tabular-nums"
+                    className="w-11 h-12 text-center text-lg font-bold border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand tabular-nums"
                   />
                 ))}
               </div>
@@ -280,7 +280,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setOtp(['1', '2', '3', '4', '5', '6'])}
-                  className="font-semibold text-blue-900 hover:underline"
+                  className="font-semibold text-brand hover:underline"
                 >
                   Fill Code (123456)
                 </button>
@@ -297,7 +297,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-2.5 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-sm transition-all"
+                  className="flex-1 py-2.5 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 transition-all"
                 >
                   {isSubmitting ? 'Verifying...' : 'Confirm & Enter App'}
                 </button>

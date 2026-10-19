@@ -11,24 +11,24 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
     <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
       {/* Top Navbar */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0">
               <img
                 src="/assets/aistudio/tam_2_b2487d86.png"
-                alt="DAKE Logo"
-                className="w-full h-full object-contain drop-shadow-xs"
+                alt="Logo"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/tam_2.png';
                 }}
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">
-                DAKE
+              <span className="text-xs sm:text-sm font-extrabold tracking-tight text-slate-800 uppercase">
+                Instant Crypto Loans
               </span>
               <span className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase">
-                Safe & Instant Loans
+                Safe & Instant Credit Lines
               </span>
             </div>
           </div>
@@ -36,13 +36,13 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
           <div className="flex items-center gap-3">
             <button
               onClick={onLogIn}
-              className="text-xs font-bold text-slate-700 hover:text-slate-900 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors"
+              className="text-xs font-bold text-slate-700 hover:text-slate-900 px-3.5 py-2 rounded-lg hover:bg-slate-100 transition-colors"
             >
               Log In
             </button>
             <button
               onClick={onGetStarted}
-              className="text-xs font-bold text-white bg-blue-900 hover:bg-blue-800 px-4 py-2 rounded-xl transition-colors shadow-sm"
+              className="text-xs font-bold text-white bg-brand hover:bg-brand-hover px-5 py-2.5 rounded-xl transition-all shadow-md shadow-brand/25 active:scale-[0.98]"
             >
               Get Started
             </button>
@@ -62,7 +62,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
               Unlock the Value of <br />
-              <span className="text-blue-900">Your Crypto Assets.</span>
+              <span className="text-brand">Your Crypto Assets.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -73,7 +73,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button
                 onClick={onGetStarted}
-                className="h-13 px-7 bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20 active:scale-[0.98] transition-all"
+                className="h-13 px-7 bg-brand hover:bg-brand-hover text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-brand/25 active:scale-[0.98] transition-all"
               >
                 <span>Apply for Instant Loan</span>
                 <ArrowRight className="w-4 h-4" />
@@ -109,7 +109,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
             <div className="relative w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
               <img
                 src="/src/assets/images/coinlend_crypto_vault_1792427732745.jpg"
-                alt="DAKE Secure Crypto Vault"
+                alt="Secure Crypto Vault"
                 referrerPolicy="no-referrer"
                 className="w-full h-80 sm:h-96 object-cover object-center"
               />
@@ -163,7 +163,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
         <p className="max-w-4xl mx-auto px-4">
-          DAKE Prototype Platform &middot; Simulated Environment &middot; All balances, crypto transfers, loan contracts, and
+          Crypto Lending Platform &middot; Simulated Environment &middot; All balances, crypto transfers, loan contracts, and
           repayments are simulated for testing and demonstration purposes.
         </p>
       </footer>

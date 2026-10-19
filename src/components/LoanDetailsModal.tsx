@@ -211,7 +211,7 @@ export const LoanDetailsModal: React.FC<LoanDetailsModalProps> = ({ loan, isOpen
                   onClick={() => setRepayType('custom')}
                   className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
                     repayType === 'custom'
-                      ? 'border-blue-900 bg-blue-50 text-blue-900 font-bold'
+                      ? 'border-brand bg-brand-light text-brand font-bold'
                       : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -222,7 +222,7 @@ export const LoanDetailsModal: React.FC<LoanDetailsModalProps> = ({ loan, isOpen
                   onClick={() => setRepayType('interest')}
                   className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
                     repayType === 'interest'
-                      ? 'border-blue-900 bg-blue-50 text-blue-900 font-bold'
+                      ? 'border-brand bg-brand-light text-brand font-bold'
                       : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -304,7 +304,7 @@ export const LoanDetailsModal: React.FC<LoanDetailsModalProps> = ({ loan, isOpen
                 type="button"
                 disabled={isSubmitting || numericRepay <= 0}
                 onClick={handleRepaymentSubmit}
-                className="w-full h-11 bg-blue-900 hover:bg-blue-800 disabled:opacity-50 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                className="w-full h-11 bg-brand hover:bg-brand-hover disabled:opacity-50 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-brand/25 transition-all"
               >
                 {isSubmitting ? (
                   <span>Processing Payment...</span>

@@ -87,8 +87,8 @@ export const CollateralModal: React.FC<CollateralModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-900 text-white flex items-center justify-center">
-              <ShieldCheck className="w-4 h-4 text-blue-200" />
+            <div className="w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center">
+              <ShieldCheck className="w-4 h-4 text-blue-100" />
             </div>
             <div>
               <h2 className="text-sm font-bold text-slate-900">
@@ -181,7 +181,7 @@ export const CollateralModal: React.FC<CollateralModalProps> = ({
                       }}
                       className={`p-2 rounded-xl border text-center transition-all ${
                         isSelected
-                          ? 'border-blue-900 bg-blue-50/50 shadow-sm'
+                          ? 'border-brand bg-brand-light/70 shadow-sm'
                           : 'border-slate-200 bg-white hover:bg-slate-50'
                       }`}
                     >
@@ -291,7 +291,7 @@ export const CollateralModal: React.FC<CollateralModalProps> = ({
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full h-12 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs rounded-xl shadow-md shadow-blue-900/10 active:scale-[0.98] transition-all min-h-[48px] flex items-center justify-center"
+                className="w-full h-12 bg-brand hover:bg-brand-hover text-white font-semibold text-xs rounded-xl shadow-md shadow-brand/25 active:scale-[0.98] transition-all min-h-[48px] flex items-center justify-center"
               >
                 {action === 'deposit'
                   ? `Deposit ${numericAmount || 0} ${currentAsset.symbol} to Vault`

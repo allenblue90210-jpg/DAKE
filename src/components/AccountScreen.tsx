@@ -36,12 +36,12 @@ export const AccountScreen: React.FC<AccountScreenProps> = ({ onOpenKyc, onLogOu
 
   const faqs = [
     {
-      q: 'How do crypto-backed loans work on DAKE?',
+      q: 'How do crypto-backed loans work?',
       a: 'You deposit cryptocurrency (Bitcoin or Ethereum) into a secure simulated vault as collateral. Based on your collateral value, you can immediately borrow stablecoins (USDC/USDT) up to 65% LTV without selling your crypto or losing market appreciation.',
     },
     {
       q: 'What is Loan-to-Value (LTV) and liquidation?',
-      a: 'LTV is the ratio of your loan debt to the market value of your collateral. If the crypto market drops and your LTV approaches 85%, DAKE issues an alert. You can add collateral or repay part of the loan to restore a safe LTV ratio.',
+      a: 'LTV is the ratio of your loan debt to the market value of your collateral. If the crypto market drops and your LTV approaches 85%, an alert is issued. You can add collateral or repay part of the loan to restore a safe LTV ratio.',
     },
     {
       q: 'When do I get my crypto collateral back?',
@@ -58,7 +58,7 @@ export const AccountScreen: React.FC<AccountScreenProps> = ({ onOpenKyc, onLogOu
       {/* 1. Profile Header Card */}
       <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
         <div className="flex items-center gap-3.5">
-          <div className="w-14 h-14 rounded-2xl bg-blue-900 text-white flex items-center justify-center text-xl font-bold shadow-md shadow-blue-900/15">
+          <div className="w-14 h-14 rounded-2xl bg-brand text-white flex items-center justify-center text-xl font-bold shadow-md shadow-brand/25">
             {user.name.charAt(0)}
           </div>
           <div className="flex-1 min-w-0">
@@ -84,7 +84,7 @@ export const AccountScreen: React.FC<AccountScreenProps> = ({ onOpenKyc, onLogOu
           {user.kycLevel < 2 && (
             <button
               onClick={onOpenKyc}
-              className="px-3 py-1.5 bg-blue-900 text-white font-semibold rounded-lg text-xs hover:bg-blue-800"
+              className="px-3.5 py-1.5 bg-brand text-white font-semibold rounded-lg text-xs hover:bg-brand-hover shadow-sm shadow-brand/20 transition-colors"
             >
               Upgrade Limit
             </button>
@@ -152,7 +152,7 @@ export const AccountScreen: React.FC<AccountScreenProps> = ({ onOpenKyc, onLogOu
             <button
               onClick={() => updateUser({ twoFactorEnabled: !user.twoFactorEnabled })}
               className={`w-10 h-6 rounded-full transition-colors relative ${
-                user.twoFactorEnabled ? 'bg-blue-900' : 'bg-slate-300'
+                user.twoFactorEnabled ? 'bg-brand' : 'bg-slate-300'
               }`}
             >
               <div
@@ -175,7 +175,7 @@ export const AccountScreen: React.FC<AccountScreenProps> = ({ onOpenKyc, onLogOu
             <button
               onClick={() => updateUser({ biometricsEnabled: !user.biometricsEnabled })}
               className={`w-10 h-6 rounded-full transition-colors relative ${
-                user.biometricsEnabled ? 'bg-blue-900' : 'bg-slate-300'
+                user.biometricsEnabled ? 'bg-brand' : 'bg-slate-300'
               }`}
             >
               <div
@@ -198,7 +198,7 @@ export const AccountScreen: React.FC<AccountScreenProps> = ({ onOpenKyc, onLogOu
             <button
               onClick={() => updateUser({ notificationsEnabled: !user.notificationsEnabled })}
               className={`w-10 h-6 rounded-full transition-colors relative ${
-                user.notificationsEnabled ? 'bg-blue-900' : 'bg-slate-300'
+                user.notificationsEnabled ? 'bg-brand' : 'bg-slate-300'
               }`}
             >
               <div

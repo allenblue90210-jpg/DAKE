@@ -54,9 +54,9 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
               Dashboard Overview
             </h1>
-            <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-900 text-xs font-bold border border-blue-200/70">
-              <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
-              <span>DAKE Vault Protocol</span>
+            <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-brand-light text-brand text-xs font-bold border border-brand/20">
+              <ShieldCheck className="w-3.5 h-3.5 text-brand" />
+              <span>Vault Protocol</span>
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -67,15 +67,15 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => onOpenCollateral()}
-            className="px-4 py-2 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs rounded-xl border border-slate-200 flex items-center gap-1.5 shadow-sm transition-all"
+            className="px-4 py-2 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs rounded-xl border border-slate-200 flex items-center gap-1.5 shadow-xs transition-all"
           >
-            <ArrowDownLeft className="w-4 h-4 text-blue-600" />
+            <ArrowDownLeft className="w-4 h-4 text-brand" />
             <span>Deposit Collateral</span>
           </button>
 
           <button
             onClick={onStartLoan}
-            className="px-4 py-2 bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shadow-sm shadow-blue-900/20 active:scale-[0.98] transition-all"
+            className="px-4 py-2 bg-brand hover:bg-brand-hover text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shadow-md shadow-brand/25 active:scale-[0.98] transition-all"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Apply for Loan</span>
@@ -88,7 +88,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={onStartLoan}
-            className="px-4 py-2.5 bg-blue-900 hover:bg-blue-800 text-white font-extrabold text-xs rounded-xl shadow-sm flex items-center gap-2 transition-all active:scale-[0.98]"
+            className="px-4 py-2.5 bg-brand hover:bg-brand-hover text-white font-extrabold text-xs rounded-xl shadow-md shadow-brand/25 flex items-center gap-2 transition-all active:scale-[0.98]"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Get a Loan</span>
@@ -248,8 +248,8 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             <div className="bg-blue-50/70 border border-blue-200/80 rounded-2xl p-5 shadow-sm space-y-3">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-sm shadow-sm">
-                    <CreditCard className="w-5 h-5 text-blue-200" />
+                  <div className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center font-bold text-sm shadow-sm">
+                    <CreditCard className="w-5 h-5 text-blue-100" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
@@ -268,7 +268,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
                 <button
                   onClick={() => onSelectLoan(primaryActiveLoan)}
-                  className="px-4 py-2 bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-sm transition-colors flex items-center gap-1.5 self-start sm:self-auto"
+                  className="px-4 py-2 bg-brand hover:bg-brand-hover text-white font-bold text-xs rounded-xl shadow-md shadow-brand/25 transition-colors flex items-center gap-1.5 self-start sm:self-auto"
                 >
                   <span>Repay / View Details</span>
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -378,7 +378,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                       <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => onOpenCollateral(asset.id, 'deposit')}
-                          className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-900 font-bold text-xs rounded-lg transition-colors"
+                          className="px-3 py-1.5 bg-brand-light hover:bg-brand/15 text-brand font-bold text-xs rounded-lg transition-colors"
                         >
                           Deposit
                         </button>
@@ -481,9 +481,9 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             </div>
           </div>
 
-          {/* DAKE Protocol Notice */}
+          {/* Protocol Notice */}
           <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl text-center space-y-1">
-            <p className="text-xs font-bold text-slate-800">DAKE Lending Protocol Sandbox</p>
+            <p className="text-xs font-bold text-slate-800">Lending Protocol Sandbox</p>
             <p className="text-[11px] text-slate-500 leading-relaxed">
               All transactions, balances, and loans operate in a safe simulated prototype environment.
             </p>
