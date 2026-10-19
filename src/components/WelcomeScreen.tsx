@@ -11,9 +11,9 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
     <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
       {/* Top Navbar */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center shrink-0">
               <img
                 src="/assets/aistudio/tam_2_b2487d86.png"
                 alt="Logo"

@@ -34,15 +34,15 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
       {/* 1. Main Top Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => onTabChange('dashboard')}
-            className="flex items-center gap-3 text-left group"
+            className="flex items-center gap-2.5 text-left group"
           >
-            {/* Enlarged Crisp Logo without blur */}
-            <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            {/* Reduced Crisp Brand Logo */}
+            <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <img
                 src="/assets/aistudio/tam_2_b2487d86.png"
                 alt="Logo"
