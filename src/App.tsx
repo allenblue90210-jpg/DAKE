@@ -10,6 +10,8 @@ import { AuthModal } from './components/AuthModal';
 import { CollateralModal } from './components/CollateralModal';
 import { LoanDetailsModal } from './components/LoanDetailsModal';
 import { KycVerificationModal } from './components/KycVerificationModal';
+import { BottomNav } from './components/BottomNav';
+import { AppFooter } from './components/AppFooter';
 import { AssetId, Loan } from './types';
 
 const MainAppContent: React.FC = () => {
@@ -60,7 +62,7 @@ const MainAppContent: React.FC = () => {
       />
 
       {/* Main Full-Viewport Content Area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pb-28">
         {currentTab === 'dashboard' && (
           <HomeDashboard
             onStartLoan={() => setCurrentTab('loan')}
@@ -93,7 +95,23 @@ const MainAppContent: React.FC = () => {
             }}
           />
         )}
+
+        {/* Feature & Security Trust Icons Below App Content */}
+        <AppFooter />
       </main>
+
+      {/* Persistent Bottom Bar with Navigation Icons Below the App */}
+      <BottomNav
+        currentTab={currentTab}
+        onTabChange={(tab) => {
+          if (tab === 'collateral') {
+            handleOpenCollateral();
+          } else {
+            setCurrentTab(tab);
+          }
+        }}
+        onOpenCollateral={() => handleOpenCollateral()}
+      />
 
       {/* Interactive Modals */}
       <AuthModal
