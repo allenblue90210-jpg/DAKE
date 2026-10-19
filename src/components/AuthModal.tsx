@@ -95,11 +95,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <img
-                src="/assets/aistudio/tanmi_2ee482b1.png"
-                alt="DAKE Tanmi Icon"
+                src="/assets/aistudio/tam_2_b2487d86.png"
+                alt="DAKE Logo"
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/tanmi.png';
+                  (e.target as HTMLImageElement).src = '/tam_2.png';
                 }}
               />
             </div>

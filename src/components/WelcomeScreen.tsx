@@ -15,11 +15,11 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
           <div className="flex items-center gap-2.5">
             <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
               <img
-                src="/assets/aistudio/tanmi_2ee482b1.png"
-                alt="DAKE Tanmi Icon"
+                src="/assets/aistudio/tam_2_b2487d86.png"
+                alt="DAKE Logo"
                 className="w-full h-full object-contain drop-shadow-xs"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/tanmi.png';
+                  (e.target as HTMLImageElement).src = '/tam_2.png';
                 }}
               />
             </div>
