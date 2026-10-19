@@ -42,31 +42,7 @@ const MainAppContent: React.FC = () => {
     }
   };
 
-  // If user is not authenticated or explicitly logged out
-  if (!isAuthenticated || showWelcome) {
-    return (
-      <div className="min-h-screen bg-slate-50">
-        <WelcomeScreen
-          onGetStarted={() => {
-            setShowWelcome(false);
-            setAuthDefaultMode('register');
-            setIsAuthOpen(true);
-          }}
-          onLogIn={() => {
-            setShowWelcome(false);
-            setAuthDefaultMode('login');
-            setIsAuthOpen(true);
-          }}
-        />
-        <AuthModal
-          isOpen={isAuthOpen}
-          onClose={() => setIsAuthOpen(false)}
-          defaultMode={authDefaultMode}
-        />
-      </div>
-    );
-  }
-
+  // Always render the full App with Navbar and Below-Header buttons
   return (
     <div className="min-h-screen bg-slate-50/60 text-slate-900 flex flex-col font-sans">
       {/* Top Web Navigation Header */}

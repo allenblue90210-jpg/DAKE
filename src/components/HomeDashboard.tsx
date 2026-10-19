@@ -83,7 +83,44 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         </div>
       </div>
 
-      {/* 2. Top Metric Cards Strip (Desktop 3-Column Grid) */}
+      {/* 2. Below-Header Action Buttons Bar */}
+      <div className="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <button
+            onClick={onStartLoan}
+            className="px-4 py-2.5 bg-blue-900 hover:bg-blue-800 text-white font-extrabold text-xs rounded-xl shadow-sm flex items-center gap-2 transition-all active:scale-[0.98]"
+          >
+            <PlusCircle className="w-4 h-4" />
+            <span>Get a Loan</span>
+          </button>
+
+          <button
+            onClick={() => onOpenCollateral()}
+            className="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold text-xs rounded-xl border border-emerald-300 shadow-sm flex items-center gap-2 transition-all"
+          >
+            <ArrowDownLeft className="w-4 h-4 text-emerald-700" />
+            <span>Add Collateral</span>
+          </button>
+
+          <button
+            onClick={onOpenKyc}
+            className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl flex items-center gap-2 transition-all"
+          >
+            <ShieldCheck className="w-4 h-4 text-blue-700" />
+            <span>Upgrade Limit (Tier 2)</span>
+          </button>
+        </div>
+
+        <div className="text-xs text-slate-500 font-medium hidden md:flex items-center gap-2">
+          <span>0% Origination Fee</span>
+          <span>&middot;</span>
+          <span>Max 65% LTV</span>
+          <span>&middot;</span>
+          <span className="text-emerald-700 font-bold">Instant Disbursal</span>
+        </div>
+      </div>
+
+      {/* 3. Top Metric Cards Strip (Desktop 3-Column Grid) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* Metric 1: Available Borrowing Limit (Primary Deep Blue) */}
         <div className="rounded-2xl bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-950 text-white p-5 shadow-lg shadow-blue-950/15 flex flex-col justify-between relative overflow-hidden">

@@ -41,10 +41,7 @@ const STORAGE_KEY = 'dake_state_v1';
 const LoanContext = createContext<LoanContextType | undefined>(undefined);
 
 export const LoanProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    const saved = localStorage.getItem(STORAGE_KEY + '_auth');
-    return saved !== null ? JSON.parse(saved) : true; // Default to signed in for seamless prototype experience, toggleable
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
 
   const [assets, setAssets] = useState<CryptoAsset[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEY + '_assets');
