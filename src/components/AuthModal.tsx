@@ -92,8 +92,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl border border-slate-100 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-slate-100">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 flex items-center justify-center shrink-0">
               <img
                 src="/assets/aistudio/tam_2_b2487d86.png"
                 alt="Logo"
