@@ -116,6 +116,25 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                 style={{ width: `${Math.min(100, overallLTV)}%` }}
               />
             </div>
+
+            {/* Restored Primary & Secondary Action Buttons */}
+            <div className="grid grid-cols-2 gap-2.5 pt-3">
+              <button
+                onClick={onStartLoan}
+                className="h-10 bg-white hover:bg-slate-100 text-blue-950 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98] transition-all"
+              >
+                <PlusCircle className="w-3.5 h-3.5 text-blue-900" />
+                <span>Get a Loan</span>
+              </button>
+
+              <button
+                onClick={() => onOpenCollateral()}
+                className="h-10 bg-white/15 hover:bg-white/25 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 border border-white/20 active:scale-[0.98] transition-all"
+              >
+                <ArrowDownLeft className="w-3.5 h-3.5 text-blue-200" />
+                <span>Add Collateral</span>
+              </button>
+            </div>
           </div>
         </div>
 

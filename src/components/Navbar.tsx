@@ -1,5 +1,16 @@
 import React from 'react';
-import { Shield, Sparkles, User, RefreshCw, PlusCircle, ArrowDownLeft, FileText, Wallet } from 'lucide-react';
+import {
+  Shield,
+  Sparkles,
+  User,
+  RefreshCw,
+  PlusCircle,
+  ArrowDownLeft,
+  CreditCard,
+  Wallet,
+  LayoutDashboard,
+  ShieldCheck,
+} from 'lucide-react';
 import { useLoan } from '../context/LoanContext';
 
 export type NavTabKey = 'dashboard' | 'loan' | 'my-loans' | 'collateral' | 'account';
@@ -17,13 +28,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth,
   onOpenCollateral,
 }) => {
-  const { user, isAuthenticated, resetDemoData, totalCollateralValueUSD, loans } = useLoan();
+  const { user, isAuthenticated, resetDemoData, totalCollateralValueUSD, availableBorrowLimit, loans } = useLoan();
   const activeLoansCount = loans.filter((l) => l.status === 'active').length;
 
   return (
-    <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
-        {/* Zone 1: Brand Wordmark */}
+    <header className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
+      {/* 1. Main Top Navigation Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        {/* Brand */}
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => onTabChange('dashboard')}
@@ -37,90 +49,38 @@ export const Navbar: React.FC<NavbarProps> = ({
                 DAKE
               </span>
               <span className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase">
-                Crypto Lending
+                Instant Crypto Loans
               </span>
             </div>
           </button>
         </div>
 
-        {/* Zone 2: Primary Web Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1">
-          <button
-            onClick={() => onTabChange('dashboard')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${
-              currentTab === 'dashboard'
-                ? 'bg-blue-50 text-blue-900'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-            }`}
-          >
-            Dashboard
-          </button>
-
-          <button
-            onClick={() => onTabChange('loan')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-              currentTab === 'loan'
-                ? 'bg-blue-900 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-            }`}
-          >
-            <PlusCircle className="w-3.5 h-3.5" />
-            <span>Apply for Loan</span>
-          </button>
-
-          <button
-            onClick={() => onTabChange('my-loans')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-              currentTab === 'my-loans'
-                ? 'bg-blue-50 text-blue-900'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-            }`}
-          >
-            <span>My Loans</span>
-            {activeLoansCount > 0 && (
-              <span className="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">
-                {activeLoansCount}
-              </span>
-            )}
-          </button>
-
-          <button
-            onClick={onOpenCollateral}
-            className="px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors whitespace-nowrap flex items-center gap-1.5"
-          >
-            <ArrowDownLeft className="w-3.5 h-3.5 text-blue-600" />
-            <span>Deposit Collateral</span>
-          </button>
-
-          <button
-            onClick={() => onTabChange('account')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${
-              currentTab === 'account'
-                ? 'bg-blue-50 text-blue-900'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-            }`}
-          >
-            Account & Security
-          </button>
-        </nav>
-
-        {/* Zone 3: Portfolio Pill, Demo Reset & User Menu */}
-        <div className="flex items-center gap-3 shrink-0">
-          {/* Collateral indicator */}
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-slate-50 border border-slate-200/80 rounded-xl text-xs">
-            <Wallet className="w-3.5 h-3.5 text-blue-700" />
+        {/* Quick Collateral & Limit Strip in Top Bar */}
+        <div className="hidden sm:flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-50 border border-slate-200/80 rounded-xl">
             <span className="text-slate-500">Vault:</span>
             <span className="font-bold text-slate-900 tabular-nums">
               ${totalCollateralValueUSD.toLocaleString('en-US', { maximumFractionDigits: 2 })}
             </span>
           </div>
 
+          <div className="flex items-center gap-1.5 px-3 py-1 bg-blue-50 border border-blue-200/60 rounded-xl">
+            <span className="text-blue-700 font-medium">Borrow Limit:</span>
+            <span className="font-extrabold text-blue-950 tabular-nums">
+              ${availableBorrowLimit.toLocaleString('en-US', { maximumFractionDigits: 2 })}
+            </span>
+          </div>
+        </div>
+
+        {/* Right Actions: User Profile & Auth */}
+        <div className="flex items-center gap-2.5 shrink-0">
           <button
             onClick={resetDemoData}
-            title="Reset demo data to initial state"
-            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors flex items-center justify-center"
+            title="Reset demo data"
+            className="px-2.5 py-1.5 text-xs text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors flex items-center gap-1.5"
           >
-            <RefreshCw className="w-4 h-4" />
+            <RefreshCw className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">Reset Demo</span>
           </button>
 
           {isAuthenticated ? (
@@ -135,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <p className="font-semibold text-slate-800 leading-tight truncate max-w-[120px]">
                   {user.name}
                 </p>
-                <p className="text-[10px] text-emerald-600 font-semibold">Tier 2 Verified</p>
+                <p className="text-[10px] text-emerald-600 font-semibold">Verified Tier 2</p>
               </div>
             </button>
           ) : (
@@ -149,40 +109,91 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile sub-navigation bar for small screens */}
-      <div className="md:hidden border-t border-slate-100 px-4 py-2 flex items-center justify-between gap-1 overflow-x-auto bg-slate-50/50">
-        <button
-          onClick={() => onTabChange('dashboard')}
-          className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap ${
-            currentTab === 'dashboard' ? 'bg-blue-900 text-white' : 'text-slate-600'
-          }`}
-        >
-          Dashboard
-        </button>
-        <button
-          onClick={() => onTabChange('loan')}
-          className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap ${
-            currentTab === 'loan' ? 'bg-blue-900 text-white' : 'text-slate-600'
-          }`}
-        >
-          Apply Loan
-        </button>
-        <button
-          onClick={() => onTabChange('my-loans')}
-          className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap ${
-            currentTab === 'my-loans' ? 'bg-blue-900 text-white' : 'text-slate-600'
-          }`}
-        >
-          My Loans ({activeLoansCount})
-        </button>
-        <button
-          onClick={() => onTabChange('account')}
-          className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap ${
-            currentTab === 'account' ? 'bg-blue-900 text-white' : 'text-slate-600'
-          }`}
-        >
-          Account
-        </button>
+      {/* 2. Below-Header Navigation & Action Buttons Bar (Always Visible Across All Devices) */}
+      <div className="border-t border-slate-200/90 bg-slate-50/90 backdrop-blur-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-3 overflow-x-auto no-scrollbar">
+          {/* Main Destination Buttons */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <button
+              onClick={() => onTabChange('dashboard')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                currentTab === 'dashboard'
+                  ? 'bg-white text-blue-950 shadow-xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
+              }`}
+            >
+              <LayoutDashboard className="w-3.5 h-3.5 text-blue-700" />
+              <span>Dashboard</span>
+            </button>
+
+            <button
+              onClick={() => onTabChange('loan')}
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                currentTab === 'loan'
+                  ? 'bg-blue-900 text-white shadow-xs'
+                  : 'bg-blue-900/10 text-blue-950 hover:bg-blue-900/15 border border-blue-900/20'
+              }`}
+            >
+              <PlusCircle className="w-3.5 h-3.5" />
+              <span>Get a Loan</span>
+            </button>
+
+            <button
+              onClick={() => onTabChange('my-loans')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                currentTab === 'my-loans'
+                  ? 'bg-white text-blue-950 shadow-xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
+              }`}
+            >
+              <CreditCard className="w-3.5 h-3.5 text-slate-600" />
+              <span>My Loans</span>
+              {activeLoansCount > 0 && (
+                <span className="bg-emerald-600 text-white text-[10px] font-extrabold px-1.5 py-0.2 rounded-full">
+                  {activeLoansCount}
+                </span>
+              )}
+            </button>
+
+            <button
+              onClick={onOpenCollateral}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-white/80 transition-all border border-transparent hover:border-slate-200"
+            >
+              <ArrowDownLeft className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Add Collateral</span>
+            </button>
+
+            <button
+              onClick={() => onTabChange('account')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                currentTab === 'account'
+                  ? 'bg-white text-blue-950 shadow-xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
+              }`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-slate-600" />
+              <span>Account & KYC</span>
+            </button>
+          </div>
+
+          {/* Quick Right Action CTAs */}
+          <div className="hidden md:flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => onTabChange('loan')}
+              className="px-3 py-1.5 bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold rounded-lg shadow-xs flex items-center gap-1"
+            >
+              <PlusCircle className="w-3 h-3" />
+              <span>Instant Borrow</span>
+            </button>
+            <button
+              onClick={onOpenCollateral}
+              className="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold rounded-lg border border-slate-200 flex items-center gap-1"
+            >
+              <Wallet className="w-3 h-3 text-blue-700" />
+              <span>Deposit Vault</span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   );
