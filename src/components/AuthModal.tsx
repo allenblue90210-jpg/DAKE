@@ -93,8 +93,15 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-900 text-white flex items-center justify-center">
-              <ShieldCheck className="w-4 h-4 text-blue-200" />
+            <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center p-0.5 overflow-hidden">
+              <img
+                src="/assets/aistudio/tanmi_2ee482b1.png"
+                alt="DAKE Tanmi Icon"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/tanmi.png';
+                }}
+              />
             </div>
             <div>
               <h2 className="text-base font-bold text-slate-900">
