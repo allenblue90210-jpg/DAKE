@@ -41,11 +41,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onTabChange('dashboard')}
             className="flex items-center gap-2.5 text-left group"
           >
-            <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-1 shadow-sm group-hover:scale-105 transition-transform overflow-hidden">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <img
                 src="/assets/aistudio/tanmi_2ee482b1.png"
                 alt="DAKE Tanmi Icon"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain drop-shadow-xs"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/tanmi.png';
                 }}

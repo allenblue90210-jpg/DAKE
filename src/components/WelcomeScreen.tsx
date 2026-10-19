@@ -13,11 +13,11 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onLo
       <header className="bg-white border-b border-slate-200 sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-1 shadow-sm overflow-hidden">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
               <img
                 src="/assets/aistudio/tanmi_2ee482b1.png"
                 alt="DAKE Tanmi Icon"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain drop-shadow-xs"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/tanmi.png';
                 }}

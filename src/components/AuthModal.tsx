@@ -93,7 +93,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center p-0.5 overflow-hidden">
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <img
                 src="/assets/aistudio/tanmi_2ee482b1.png"
                 alt="DAKE Tanmi Icon"
